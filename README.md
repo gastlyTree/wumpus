@@ -8,5 +8,5 @@ His game featured a cave with twenty rooms with connections between the rooms. E
 # Solution
 
 This solution will implement a custom graph library and implementation to represent the "caves" of the game.
-The cave will be represented as a dodecahedron; where each vertex is a cave room and each edge is a hallway connecting said rooms.
+The cave will be represented as a dodecahedron; where each vertex is a cave room and each edge is a tunnel connecting said rooms.
 
