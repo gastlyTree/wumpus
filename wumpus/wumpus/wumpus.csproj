@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cave.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -50,12 +51,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\cosc286_rep\Graph\GraphMatrix\GraphMatrix.csproj">
+    <ProjectReference Include="..\..\GraphMatrix\GraphMatrix.csproj">
       <Project>{F677CB26-A98A-4F29-A329-7143FBB6A048}</Project>
       <Name>GraphMatrix</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\cosc286_rep\Graph\Graph\Graph.csproj">
-      <Project>{8522A33D-27F4-43E5-97C9-AC9008793AA3}</Project>
+    <ProjectReference Include="..\..\Graph\Graph.csproj">
+      <Project>{8522a33d-27f4-43e5-97c9-ac9008793aa3}</Project>
       <Name>Graph</Name>
     </ProjectReference>
   </ItemGroup>

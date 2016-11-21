@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wumpus", "wumpus\wumpus.csproj", "{3B453603-9726-4669-9FBF-F37BAAADEFA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "..\..\cosc286_rep\Graph\Graph\Graph.csproj", "{8522A33D-27F4-43E5-97C9-AC9008793AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "..\Graph\Graph.csproj", "{8522A33D-27F4-43E5-97C9-AC9008793AA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphMatrix", "..\..\cosc286_rep\Graph\GraphMatrix\GraphMatrix.csproj", "{F677CB26-A98A-4F29-A329-7143FBB6A048}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphMatrix", "..\GraphMatrix\GraphMatrix.csproj", "{F677CB26-A98A-4F29-A329-7143FBB6A048}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
