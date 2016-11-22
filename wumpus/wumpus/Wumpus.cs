@@ -6,21 +6,34 @@ using System.Threading.Tasks;
 
 namespace wumpus
 {
-    public class Wumpus
+    public class Wumpus : Mob
     {
         #region Attributes
         public const int SPOOKED_CHANCE = 75;
         #endregion
 
         #region Constructors
+        public Wumpus() { }
 
+        public Wumpus(Room locationSet)
+        {
+            this.location = locationSet;
+        }
         #endregion
 
         #region Methods
 
-        public void moveWumpus()
+        public bool moveWumpus(Room newLocation)
         {
-
+            bool moved = false;
+            Random rnd = new Random();
+            int roll = rnd.Next(1, 101);
+            if(roll <= 75)
+            {
+                location = newLocation;
+                moved = true;
+            }
+            return moved;
         }
 
         #endregion

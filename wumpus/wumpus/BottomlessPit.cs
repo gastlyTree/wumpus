@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace wumpus
 {
-    public class BottomlessPit
+    public class BottomlessPit : Mob
     {
         #region Attributes
 
         #endregion
 
         #region Constructors
+        public BottomlessPit() { }
 
+        public BottomlessPit(Room locationSet)
+        {
+            this.location = locationSet;
+        }
         #endregion
 
         #region Methods
