@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BottomlessPit.cs" />
     <Compile Include="Cave.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuperBat.cs" />
+    <Compile Include="Wumpus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
