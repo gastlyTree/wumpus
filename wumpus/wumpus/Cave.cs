@@ -18,7 +18,7 @@ namespace wumpus
         public List<Mob> mobsInTheGame = new List<Mob>();
 
         //Trying to make a graph of type room, but running into problems. should ask Rob
-        //public UGraphMatrix<Room> Caves = new UGraphMatrix<Room>(); 
+        public UGraphMatrix<Room> Caves = new UGraphMatrix<Room>(); 
 
         #endregion
 

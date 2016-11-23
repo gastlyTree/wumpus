@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace wumpus
 {
-    public class Room
+    public class Room : IComparable<Room>
     {
         //A list containing any mob that is in the room, Incuding the player
         List<Mob> roomSquaters = new List<Mob>();
@@ -32,5 +32,17 @@ namespace wumpus
 
             return isGameOver;
         }
+
+        public int CompareTo(Room obj)
+        {
+            if (obj == null) return 1;
+
+            Room otherRoom = obj as Room;
+            if (otherRoom != null)
+                return this.roomNumber.CompareTo(otherRoom.roomNumber);
+            else
+                throw new ArgumentException("Object is not a Room");
+        }
+
     }
 }
