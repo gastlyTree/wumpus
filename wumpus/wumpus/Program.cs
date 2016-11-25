@@ -17,6 +17,7 @@ namespace wumpus
         static void testCaveCreation()
         {
             Cave cave = new Cave();
+            cave.ToString();
         }
 
         static void Main(string[] args)

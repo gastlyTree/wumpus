@@ -49,5 +49,10 @@ namespace wumpus
                 throw new ArgumentException("Object is not a Room");
         }
 
+        public override string ToString()
+        {
+            return roomNumber.ToString();
+        }
+
     }
 }

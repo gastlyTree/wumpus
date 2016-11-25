@@ -33,10 +33,19 @@ namespace wumpus
             mobsInTheGame = new List<Mob>();
             Caves = new UGraphMatrix<Room>();
 
+            createCaves();
+
             //spawn the mobs
             randomizeSpawnPoints();
             fillTheRooms();
-            
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void createCaves()
+        {
             //Create the cave rooms
             for (int i = 1; i <= 20; i++)
             {
@@ -76,15 +85,11 @@ namespace wumpus
             Caves.AddEdge(Caves.vertices[18].Data, Caves.vertices[19].Data);
         }
 
-        #endregion
-
-        #region Methods
-
         /// <summary>
         /// Create the mobs, and then add them to the list of mobs in the game.
         /// Then add them to the rooms.
         /// </summary>
-        public void fillTheRooms()
+        private void fillTheRooms()
         {
             //add the super bats
             for (int i = 0; i < numBats; i++)
@@ -102,8 +107,6 @@ namespace wumpus
                 mobsInTheGame.Add(new Wumpus(Caves.vertices[locationsUsed.Pop()].Data));
             }
 
-            //****************************
-            //this is not working quite right. It only adds a few mobs to the rooms.
             foreach (Mob mob in mobsInTheGame)
             {
                 mob.location.addToRoom(mob);
@@ -115,7 +118,7 @@ namespace wumpus
         /// No numbers can repeat.
         /// amount of numbers is equal to the number of mobs
         /// </summary>
-        public void randomizeSpawnPoints()
+        private void randomizeSpawnPoints()
         {
             Random rnd = new Random();
             locationsUsed = new Stack<int>();
