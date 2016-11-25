@@ -15,9 +15,13 @@ namespace wumpus
         public const int numPits = 2;
         public const int numWumpus = 1;
 
+        //list of all the mobs that are in the caves
         public List<Mob> mobsInTheGame;
 
-        //Trying to make a graph of type room, but running into problems. should ask Rob
+        //set of random int's to be used for spawning the mobs
+        public Stack<int> locationsUsed;
+
+        //Matrix with that contains all the cave rooms and their connections.
         public UGraphMatrix<Room> Caves;
 
         #endregion
@@ -29,23 +33,17 @@ namespace wumpus
             mobsInTheGame = new List<Mob>();
             Caves = new UGraphMatrix<Room>();
 
-            Random rnd = new Random();
-            Stack<int> locationsUsed = new Stack<int>();
-            while (locationsUsed.Count < numBats + numPits + numWumpus + 1)
-            {
-                int roll = rnd.Next(0, 19);
-                if(!locationsUsed.Contains(roll))
-                {
-                    locationsUsed.Push(roll);
-                }
-            }
+            //spawn the mobs
+            randomizeSpawnPoints();
+            fillTheRooms();
             
             //Create the cave rooms
             for (int i = 1; i <= 20; i++)
             {
                 Caves.AddVertex(new Room(i));
             }
-            //add the connections between the cave rooms
+            //add the connections between the cave rooms.
+            //there is probably a better way of doing this.
             Caves.AddEdge(Caves.vertices[0].Data, Caves.vertices[1].Data);
             Caves.AddEdge(Caves.vertices[0].Data, Caves.vertices[2].Data);
             Caves.AddEdge(Caves.vertices[0].Data, Caves.vertices[3].Data);
@@ -76,10 +74,18 @@ namespace wumpus
             Caves.AddEdge(Caves.vertices[16].Data, Caves.vertices[19].Data);
             Caves.AddEdge(Caves.vertices[17].Data, Caves.vertices[19].Data);
             Caves.AddEdge(Caves.vertices[18].Data, Caves.vertices[19].Data);
+        }
 
+        #endregion
 
-            //Add the mobs to the rooms
+        #region Methods
 
+        /// <summary>
+        /// Create the mobs, and then add them to the list of mobs in the game.
+        /// Then add them to the rooms.
+        /// </summary>
+        public void fillTheRooms()
+        {
             //add the super bats
             for (int i = 0; i < numBats; i++)
             {
@@ -96,17 +102,38 @@ namespace wumpus
                 mobsInTheGame.Add(new Wumpus(Caves.vertices[locationsUsed.Pop()].Data));
             }
 
+            //****************************
+            //this is not working quite right. It only adds a few mobs to the rooms.
             foreach (Mob mob in mobsInTheGame)
             {
                 mob.location.addToRoom(mob);
             }
-
         }
 
-        #endregion
+        /// <summary>
+        /// fills the locationsUsed stack with random numbers from 0 to 19.
+        /// No numbers can repeat.
+        /// amount of numbers is equal to the number of mobs
+        /// </summary>
+        public void randomizeSpawnPoints()
+        {
+            Random rnd = new Random();
+            locationsUsed = new Stack<int>();
+            //the +1 is for the player
+            while (locationsUsed.Count < numBats + numPits + numWumpus + 1)
+            {
+                int roll = rnd.Next(0, 19);
+                if (!locationsUsed.Contains(roll))
+                {
+                    locationsUsed.Push(roll);
+                }
+            }
+        }
 
-        #region Methods
-
+        /// <summary>
+        /// probably not super neccisary
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return Caves.ToString();
