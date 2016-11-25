@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BottomlessPit.cs" />
     <Compile Include="Cave.cs" />
+    <Compile Include="CPlayGame.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
