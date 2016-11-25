@@ -12,6 +12,11 @@ namespace wumpus
         List<Mob> roomSquaters = new List<Mob>();
         public int roomNumber;
 
+        public Room(int iRoomNumber)
+        {
+            this.roomNumber = iRoomNumber;
+        }
+
         /// <summary>
         /// Will add a mob to the room, and then determine if the game is over
         /// because of that action.

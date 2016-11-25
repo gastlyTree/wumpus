@@ -12,7 +12,7 @@ namespace wumpus
 
         public Mob()
         {
-            location = new Room();
+            
         }
 
         public Mob(Room locationSet)

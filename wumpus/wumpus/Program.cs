@@ -10,15 +10,15 @@ namespace wumpus
 {
     class Program
     {
-        static void TestShortestWeightedPath()
+        static void testCaveCreation()
         {
-            
+            Cave cave = new Cave();
 
         }
 
         static void Main(string[] args)
         {
-            
+            testCaveCreation();
         }
     }
 }
