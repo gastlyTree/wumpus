@@ -23,15 +23,16 @@ namespace wumpus
 
         #region Methods
 
-        public bool moveWumpus(Room newLocation)
+        public bool moveWumpus(Room newRoom)
         {
             bool moved = false;
             Random rnd = new Random();
             int roll = rnd.Next(1, 101);
             if(roll <= 75)
             {
-                location = newLocation;
-                moved = true;
+                location.roomSquaters.Remove(this);
+                newRoom.addToRoom(this);
+                location = newRoom;
             }
             return moved;
         }
