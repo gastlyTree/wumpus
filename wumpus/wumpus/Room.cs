@@ -9,12 +9,12 @@ namespace wumpus
     public class Room : IComparable<Room>
     {
         //A list containing any mob that is in the room, Incuding the player
-        List<Mob> roomSquaters = new List<Mob>();
+        public List<Mob> roomSquaters = new List<Mob>();
         public int roomNumber;
 
         public Room(int iRoomNumber)
         {
-            this.roomNumber = iRoomNumber;
+            roomNumber = iRoomNumber;
         }
 
         /// <summary>
